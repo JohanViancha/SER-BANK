@@ -1,9 +1,10 @@
 package com.example.ser_bank;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.ser_bank.AdminDB.admindb;
+import com.example.ser_bank.AdminDB.adminUsuario;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -31,10 +32,10 @@ public class Login extends AppCompatActivity {
         String usuario =  this.usuario.getText().toString();
         String password = this.password.getText().toString();
 
-        admindb admin = new admindb(this, "SER-BANK",null,1);
+        adminUsuario adminusu = new adminUsuario();
         if(!usuario.isEmpty() && !password.isEmpty()){
 
-            Cursor result =  admin.ingresar(usuario, password);
+            Cursor result =  adminusu.ingresar(this,usuario, password);
 
             if(result != null){
                 Toast.makeText(this, "Usuario correcto", Toast.LENGTH_SHORT).show();
@@ -43,7 +44,8 @@ public class Login extends AppCompatActivity {
                 editor.putString("id_usuario", result.getString(0));
                 editor.putString("tipo_usuario", result.getString(3));
 
-
+                Intent inte = new Intent(this, Menu.class);
+                startActivity(inte);
             }
             else{
 

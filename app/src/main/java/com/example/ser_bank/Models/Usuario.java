@@ -9,6 +9,13 @@ public class Usuario {
     private String password;
     private String tipo;
 
+    public Usuario(String nombre, String apellidos, String email, String password) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.email = email;
+        this.password = password;
+    }
+
     public Usuario(int id, String nombre, String apellidos, String email, String password, String tipo) {
 
         this.id = id;

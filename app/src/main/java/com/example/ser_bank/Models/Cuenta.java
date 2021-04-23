@@ -7,6 +7,12 @@ public class Cuenta {
     private double saldo;
     private String tipo;
 
+
+    public Cuenta(double saldo, String tipo) {
+        this.saldo = saldo;
+        this.tipo = tipo;
+    }
+
     public Cuenta(int id, String codigo, double saldo, String tipo) {
         this.id = id;
         this.codigo = codigo;

@@ -52,21 +52,5 @@ public class admindb extends SQLiteOpenHelper {
 
     }
 
-    public Cursor ingresar(String usuario, String password){
 
-        SQLiteDatabase sql = this.getReadableDatabase();
-
-        Cursor fila = sql.rawQuery("select usu.id_usuario, usu.nombre_usu, usu.apellidos_usu,usu.tipo_usu, " +
-                                    "cue.codigo_cue, cue.saldo_cue, cue.tipo_cue" +
-                                    " from usuario usu inner join cuenta cue on usu.id_usuario = cue.id_usuario" +
-                                    " where email_usu=\'"+usuario+"\' and password_usu = \'"+password+"\'" ,null);
-
-        if(fila.moveToFirst()){
-            return fila;
-        }
-        else{
-            return null;
-        }
-
-    }
 }

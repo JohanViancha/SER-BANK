@@ -3,6 +3,14 @@
     <string name="btn_ingresar">Ingresar</string>
     <string name="pla_txtusuario">Ingrese el usuario</string>
     <string name="pla_txtpassword">Ingrese la contraseña</string>
+    <string name="menu_verusuarios">Visualizar usuarios</string>
+    <string name="menu_crearusuario">Crear usuario</string>
+    <string name="menu_historialtransacciones">Historial Transaciones</string>
+    <string name="crearusuario_nombre">Ingrese el nombre del usuario</string>
+    <string name="crearusuario_apellidos">Ingrese los apellidos del usuario</string>
+    <string name="crearusuario_email">Ingrese el email del usuario</string>
+    <string name="crearusuario_password">Ingrese la contraseña del usuario</string>
+    <string name="crearusuario_btncrear">Crar usuario</string>
 
 
 </resources>
