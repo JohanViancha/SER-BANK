@@ -13,6 +13,10 @@ import com.example.ser_bank.AdminDB.*;
 import com.example.ser_bank.Models.Transaccion;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class RealizarTransaccion extends AppCompatActivity {
 
     TextInputEditText cuenta,monto;
@@ -44,7 +48,11 @@ public class RealizarTransaccion extends AppCompatActivity {
         SharedPreferences sharedpreferences = getSharedPreferences("sesion_usuario", Context.MODE_PRIVATE);
         int id_cuenta_emi = sharedpreferences.getInt("id_cuenta", -1);
 
-        Transaccion transaccion = new Transaccion(tipotransaccion, monto, id_cuenta_emi, id_cuenta_rec);
+        long ahora = System.currentTimeMillis();
+        Date fecha = new Date(ahora);
+        DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        String actual = df.format(fecha);
+        Transaccion transaccion = new Transaccion(tipotransaccion, monto, id_cuenta_emi, id_cuenta_rec,actual);
 
         if(admintra.realizarTransaccion(this, transaccion)){
             Toast.makeText(this, "La transacción ha sido exitosa", Toast.LENGTH_SHORT).show();

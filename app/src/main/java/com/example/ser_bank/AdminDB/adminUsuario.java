@@ -83,7 +83,7 @@ public class adminUsuario {
         Cursor fila = sql.rawQuery("select usu.nombre_usu, usu.apellidos_usu, cue.saldo_cue" +
                 " from usuario usu inner join cuenta cue on usu.id_usuario = cue.id_usuario" ,null);
 
-        if(fila.moveToFirst()){
+        if(fila.getCount() != 0){
             return fila;
         }
         else{

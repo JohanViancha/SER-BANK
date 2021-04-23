@@ -37,7 +37,7 @@ public class ListAdapterTransaccion extends RecyclerView.Adapter<ListAdapterTran
 
     @Override
     public void onBindViewHolder(@NonNull ListAdapterTransaccion.ViewHolder holder, int position) {
-        holder.mostrarusuarios(this.transacciones.get(position));
+        holder.mostrarTransacciones(this.transacciones.get(position));
     }
 
     @Override
@@ -58,15 +58,13 @@ public class ListAdapterTransaccion extends RecyclerView.Adapter<ListAdapterTran
 
         }
 
-        public void mostrarusuarios(final Transaccion transaccion){
+        public void mostrarTransacciones(final Transaccion transaccion){
 
             de.setText(transaccion.getNombre_emi());
             para.setText(transaccion.getNombre_rec());
             tipo.setText(transaccion.getTipo());
             monto.setText(String.valueOf(transaccion.getMonto()));
             fecha.setText(transaccion.getFecha());
-
-
         }
     }
 }

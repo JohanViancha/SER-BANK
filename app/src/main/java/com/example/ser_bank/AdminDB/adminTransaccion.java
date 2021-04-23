@@ -22,6 +22,8 @@ public class adminTransaccion {
             transaccion_nueva.put("monto_trans", transaccion.getMonto());
             transaccion_nueva.put("id_cue_emi", transaccion.getId_cue_emi());
             transaccion_nueva.put("id_cue_rec", transaccion.getId_cue_rec());
+            transaccion_nueva.put("fecha_trans", transaccion.getFecha());
+
 
 
             if(sql.insert("transaccion",null, transaccion_nueva) != 0){
@@ -34,6 +36,22 @@ public class adminTransaccion {
         }
 
         return respuesta;
+    }
+
+    public Cursor listarTransacciones(Context context){
+        admindb admin = new admindb(context, "SER-BANK",null,1);
+        SQLiteDatabase sql = admin.getReadableDatabase();
+        Cursor fila = sql.rawQuery("select * from transaccion tra inner join cuenta cue" +
+                " on tra.id_cue_emi = cue.id_cuenta  inner join usuario usu " +
+                "on usu.id_usuario = cue.id_usuario" ,null);
+
+        if(fila.getCount() != 0){
+            return fila;
+        }
+        else{
+            return null;
+        }
+
     }
 
 
