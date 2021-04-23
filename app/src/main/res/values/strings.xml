@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SER-BANK</string>
+    <string name="btn_ingresar">Ingresar</string>
+    <string name="pla_txtusuario">Ingrese el usuario</string>
+    <string name="pla_txtpassword">Ingrese la contraseña</string>
+
+
 </resources>

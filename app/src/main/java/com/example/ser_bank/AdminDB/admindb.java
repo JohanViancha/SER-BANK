@@ -1,12 +1,14 @@
 package com.example.ser_bank.AdminDB;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
 public class admindb extends SQLiteOpenHelper {
+
 
     public admindb(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -25,11 +27,11 @@ public class admindb extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE cuenta(" +
                 "id_cuenta integer primary key," +
-                "id_usu integer," +
+                "id_usuario integer," +
                 "codigo_cue text," +
                 "saldo_cue money," +
                 "tipo_cue text," +
-                "foreign key (id_usu) references usuario (id_usuario))");
+                "foreign key (id_usuario) references usuario (id_usuario))");
 
         db.execSQL("CREATE TABLE transaccion(" +
                 "id_transacion integer primary key," +
@@ -41,11 +43,30 @@ public class admindb extends SQLiteOpenHelper {
                 "foreign key (id_cue_rec) references cuenta (id_cuenta))");
 
 
-
+        db.execSQL("INSERT INTO USUARIO VALUES (1,'Johan','Viancha','vianchajohan@gmail.com','123','Administrador')");
+        db.execSQL("INSERT INTO CUENTA VALUES (1,1,'1234567',10000,'Ahorros')");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+    }
+
+    public Cursor ingresar(String usuario, String password){
+
+        SQLiteDatabase sql = this.getReadableDatabase();
+
+        Cursor fila = sql.rawQuery("select usu.id_usuario, usu.nombre_usu, usu.apellidos_usu,usu.tipo_usu, " +
+                                    "cue.codigo_cue, cue.saldo_cue, cue.tipo_cue" +
+                                    " from usuario usu inner join cuenta cue on usu.id_usuario = cue.id_usuario" +
+                                    " where email_usu=\'"+usuario+"\' and password_usu = \'"+password+"\'" ,null);
+
+        if(fila.moveToFirst()){
+            return fila;
+        }
+        else{
+            return null;
+        }
 
     }
 }
