@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SERBANK">
-        <activity android:name=".CrearUsuario"></activity>
+        <activity android:name=".VisualizarUsuarios"></activity>
+        <activity android:name=".RealizarTransaccion" />
+        <activity android:name=".CrearUsuario" />
         <activity android:name=".Menu" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Login">

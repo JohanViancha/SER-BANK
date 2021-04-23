@@ -41,8 +41,11 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(this, "Usuario correcto", Toast.LENGTH_SHORT).show();
                 SharedPreferences sharedpreferences = getSharedPreferences("sesion_usuario", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putString("id_usuario", result.getString(0));
+                editor.putInt("id_usuario", result.getInt(0));
                 editor.putString("tipo_usuario", result.getString(3));
+                editor.putInt("id_cuenta", result.getInt(4));
+                editor.commit();
+
 
                 Intent inte = new Intent(this, Menu.class);
                 startActivity(inte);

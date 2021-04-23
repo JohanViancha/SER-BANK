@@ -2,6 +2,7 @@ package com.example.ser_bank.AdminDB;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.ser_bank.Models.Cuenta;
@@ -36,6 +37,23 @@ public class adminCuenta {
 
        return respuesta;
     }
+
+
+    public int validarCuenta(Context context, String cuenta){
+        int respuesta = 0;
+        admindb admin = new admindb(context, "SER-BANK",null,1);
+        SQLiteDatabase sql = admin.getWritableDatabase();
+        Cursor fila = sql.rawQuery("select id_cuenta from cuenta where codigo_cue = \'"+cuenta+"\'" ,null);
+
+        if(fila.moveToFirst()){
+            respuesta = fila.getInt(0);
+        }
+
+        return respuesta;
+
+    }
+
+
     private String generarCuenta(String nombre, String apellidos){
         long ahora = System.currentTimeMillis();
         Date fecha = new Date(ahora);

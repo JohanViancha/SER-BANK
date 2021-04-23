@@ -19,4 +19,14 @@ public class Menu extends AppCompatActivity {
         Intent inte = new Intent(this, CrearUsuario.class);
         startActivity(inte);
     }
+
+    public void realizarTransaccion(View view){
+        Intent inte = new Intent(this, RealizarTransaccion.class);
+        startActivity(inte);
+    }
+
+    public void listarUsuarios(View view){
+        Intent inte = new Intent(this, VisualizarUsuarios.class);
+        startActivity(inte);
+    }
 }

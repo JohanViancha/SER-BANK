@@ -10,7 +10,13 @@
     <string name="crearusuario_apellidos">Ingrese los apellidos del usuario</string>
     <string name="crearusuario_email">Ingrese el email del usuario</string>
     <string name="crearusuario_password">Ingrese la contraseña del usuario</string>
-    <string name="crearusuario_btncrear">Crar usuario</string>
+    <string name="crearusuario_btncrear">Crear usuario</string>
+    <string name="realizartrans_btntransaccion">Realizar Transacción</string>
+    <string name="realizartrans_monto">Ingres el monto de enviar</string>
+    <string name="realizartrans_cuenta">Codigo de cuenta</string>
+    <string name="realizartrans_tipotransaccion">Tipo Transacción</string>
+    <string name="listusuarios">Lista de usuarios</string>
+
 
 
 </resources>

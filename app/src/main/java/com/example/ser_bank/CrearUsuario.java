@@ -22,7 +22,7 @@ public class CrearUsuario extends AppCompatActivity {
         nombre = findViewById(R.id.txtnombre_creusu);
         apellidos = findViewById(R.id.txtapellidos_creusu);
         email = findViewById(R.id.txtemail_creusu);
-        password = findViewById(R.id.txtpassword_creausu);
+        password = findViewById(R.id.txtcuenta_reatra);
 
     }
 

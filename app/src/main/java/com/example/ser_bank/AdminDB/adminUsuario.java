@@ -20,7 +20,7 @@ public class adminUsuario {
         admindb admin = new admindb(context, "SER-BANK",null,1);
         SQLiteDatabase sql = admin.getReadableDatabase();
         Cursor fila = sql.rawQuery("select usu.id_usuario, usu.nombre_usu, usu.apellidos_usu,usu.tipo_usu, " +
-                "cue.codigo_cue, cue.saldo_cue, cue.tipo_cue" +
+                "cue.id_cuenta,cue.codigo_cue, cue.saldo_cue, cue.tipo_cue" +
                 " from usuario usu inner join cuenta cue on usu.id_usuario = cue.id_usuario" +
                 " where email_usu=\'"+usuario+"\' and password_usu = \'"+password+"\'" ,null);
 
@@ -74,6 +74,22 @@ public class adminUsuario {
         fila.moveToFirst();
         int idusuario = fila.getInt(0);
         return idusuario;
+    }
+
+
+    public Cursor listarUsuarios(Context context){
+        admindb admin = new admindb(context, "SER-BANK",null,1);
+        SQLiteDatabase sql = admin.getWritableDatabase();
+        Cursor fila = sql.rawQuery("select usu.nombre_usu, usu.apellidos_usu, cue.saldo_cue" +
+                " from usuario usu inner join cuenta cue on usu.id_usuario = cue.id_usuario" ,null);
+
+        if(fila.moveToFirst()){
+            return fila;
+        }
+        else{
+            return null;
+        }
+
     }
 
 }

@@ -39,6 +39,7 @@ public class admindb extends SQLiteOpenHelper {
                 "id_cue_rec integer," +
                 "tipo_trans text," +
                 "monto_trans money," +
+                "fecha_trans date," +
                 "foreign key (id_cue_emi) references cuenta (id_cuenta)," +
                 "foreign key (id_cue_rec) references cuenta (id_cuenta))");
 
