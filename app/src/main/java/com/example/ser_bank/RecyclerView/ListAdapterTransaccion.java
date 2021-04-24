@@ -30,7 +30,7 @@ public class ListAdapterTransaccion extends RecyclerView.Adapter<ListAdapterTran
     @Override
     public ListAdapterTransaccion.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = inflater.inflate(R.layout.list_usuarios,null);
+        View view = inflater.inflate(R.layout.list_transacciones,null);
 
         return new ListAdapterTransaccion.ViewHolder(view);
     }
@@ -47,7 +47,7 @@ public class ListAdapterTransaccion extends RecyclerView.Adapter<ListAdapterTran
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView de, para, tipo,monto,fecha;
+        private TextView de, para, tipo,monto,fecha,medio,quien;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             de = itemView.findViewById(R.id.txtde_listra);
@@ -55,11 +55,17 @@ public class ListAdapterTransaccion extends RecyclerView.Adapter<ListAdapterTran
             tipo = itemView.findViewById(R.id.txttipo_listra);
             monto = itemView.findViewById(R.id.txtmonto_listra);
             fecha = itemView.findViewById(R.id.txtfecha_listra);
+            medio = itemView.findViewById(R.id.txtmedio_his);
+            quien = itemView.findViewById(R.id.txtquien_his);
+
 
         }
 
         public void mostrarTransacciones(final Transaccion transaccion){
-
+            if(transaccion.getTipo() == "Retiro"){
+                medio.setText("Medio de retiro");
+                quien.setText("¿Quien retira?");
+            }
             de.setText(transaccion.getNombre_emi());
             para.setText(transaccion.getNombre_rec());
             tipo.setText(transaccion.getTipo());

@@ -8,6 +8,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtlen"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,26 +17,32 @@
         android:layout_marginTop="150dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <AutoCompleteTextView
-            android:id="@+id/txtautocomplete"
+            android:id="@+id/txtmedio"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:text="Caja">
 
         </AutoCompleteTextView>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtlayout_cuenta"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:hint="@string/realizartrans_cuenta"
@@ -63,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="250dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:hint="@string/realizartrans_monto"
@@ -85,11 +92,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="350dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:onClick="realizarTransacion"
         android:text="@string/realizartrans_btntransaccion"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

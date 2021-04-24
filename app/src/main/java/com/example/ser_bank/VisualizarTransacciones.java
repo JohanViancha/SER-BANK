@@ -42,6 +42,7 @@ public class VisualizarTransacciones extends AppCompatActivity {
                 transaccion.setNombre_rec(filas.getString(2));
                 transaccion.setMonto(filas.getDouble(4));
                 transaccion.setTipo(filas.getString(3));
+                transaccion.setFecha(filas.getString(5));
                 arraytransacciones.add(transaccion);
             }
         }

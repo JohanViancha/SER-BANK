@@ -2,6 +2,7 @@ package com.example.ser_bank.AdminDB;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -43,7 +44,7 @@ public class adminCuenta {
         Cursor respuesta = null;
         admindb admin = new admindb(context, "SER-BANK",null,1);
         SQLiteDatabase sql = admin.getReadableDatabase();
-        Cursor fila = sql.rawQuery("select usu.nombre_usu, usu.apellidos_usu from cuenta cue inner join usuario usu " +
+        Cursor fila = sql.rawQuery("select usu.nombre_usu, usu.apellidos_usu, cue.id_cuenta from cuenta cue inner join usuario usu " +
                 "on usu.id_usuario = cue.id_usuario where codigo_cue = \'"+cuenta+"\'",null);
 
         if(fila.moveToFirst()){
@@ -54,6 +55,53 @@ public class adminCuenta {
 
     }
 
+    public boolean transferir(Context context, int cuenta_emi,int cuenta_rec, double valor){
+        boolean respuesta = false;
+        admindb admin = new admindb(context, "SER-BANK",null,1);
+        SQLiteDatabase sql = admin.getWritableDatabase();
+
+        if(validarMonto(context,valor,cuenta_emi)){
+            sql.execSQL("update cuenta set saldo_cue = saldo_cue + \'"+valor+"\' where id_cuenta = \'"+cuenta_rec+"\'");
+            sql.execSQL("update cuenta set saldo_cue = saldo_cue - \'" + valor + "\' where id_cuenta = \'"+cuenta_emi+"\'");
+            //cursor1.moveToFirst();
+            respuesta = true;
+        }
+
+        return respuesta;
+    }
+
+    public boolean retirar(Context context, int cuenta, double valor){
+        boolean respuesta = false;
+        double comision = 2000;
+        admindb admin = new admindb(context, "SER-BANK",null,1);
+        SQLiteDatabase sql = admin.getWritableDatabase();
+
+        if(validarMonto(context,valor+comision,cuenta)){
+            valor = valor+comision;
+            sql.execSQL("update cuenta set saldo_cue = saldo_cue -\'" +valor+ "\' where id_cuenta = \'" + cuenta + "\'");
+            respuesta = true;
+        }
+
+        return  respuesta;
+    }
+
+
+    public boolean validarMonto(Context context, double valor, int cuenta){
+
+        boolean respuesta = false;
+        admindb admin = new admindb(context, "SER-BANK",null,1);
+        SQLiteDatabase sql = admin.getReadableDatabase();
+        Cursor fila = sql.rawQuery("select saldo_cue from cuenta where id_cuenta = \'"+cuenta+"\'",null);
+
+        fila.moveToFirst();
+        double saldo = fila.getDouble(0);
+
+        if(saldo >= valor){
+            respuesta = true;
+        }
+
+        return respuesta;
+    }
 
     private String generarCuenta(String nombre, String apellidos){
         long ahora = System.currentTimeMillis();

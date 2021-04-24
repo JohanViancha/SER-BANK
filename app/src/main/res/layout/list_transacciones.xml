@@ -24,6 +24,7 @@
 
 
             <TextView
+                android:id="@+id/txtmedio_his"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -50,6 +51,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/txtquien_his"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"

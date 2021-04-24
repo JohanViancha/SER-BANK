@@ -38,7 +38,6 @@ public class Login extends AppCompatActivity {
             Cursor result =  adminusu.ingresar(this,usuario, password);
 
             if(result != null){
-                Toast.makeText(this, "Usuario correcto", Toast.LENGTH_SHORT).show();
                 SharedPreferences sharedpreferences = getSharedPreferences("sesion_usuario", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.putInt("id_usuario", result.getInt(0));
@@ -46,11 +45,20 @@ public class Login extends AppCompatActivity {
                 editor.putInt("id_cuenta", result.getInt(4));
                 editor.putString("nombre", result.getString(1));
                 editor.putString("apellido", result.getString(2));
+                editor.putFloat("saldo", result.getFloat(6));
                 editor.commit();
 
+                System.out.println(result.getString(3));
+                if(result.getString(3).equals("Administrador")){
 
-                Intent inte = new Intent(this, Menu.class);
-                startActivity(inte);
+                    Intent inte2 = new Intent(this, Menu.class);
+                    startActivity(inte2);
+
+                }else{
+                    Intent inte1 = new Intent(this, Menu2.class);
+                    startActivity(inte1);
+                }
+
             }
             else{
 
