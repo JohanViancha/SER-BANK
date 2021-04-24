@@ -12,6 +12,10 @@ public class Transaccion {
     private String fecha;
 
 
+    public Transaccion(){
+
+    }
+
     public Transaccion(String tipo, double monto, int id_cue_emi, int id_cue_rec, String fecha) {
         this.tipo = tipo;
         this.monto = monto;

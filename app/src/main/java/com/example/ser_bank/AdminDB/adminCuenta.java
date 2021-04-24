@@ -39,14 +39,15 @@ public class adminCuenta {
     }
 
 
-    public int validarCuenta(Context context, String cuenta){
-        int respuesta = 0;
+    public Cursor validarCuenta(Context context, String cuenta){
+        Cursor respuesta = null;
         admindb admin = new admindb(context, "SER-BANK",null,1);
-        SQLiteDatabase sql = admin.getWritableDatabase();
-        Cursor fila = sql.rawQuery("select id_cuenta from cuenta where codigo_cue = \'"+cuenta+"\'" ,null);
+        SQLiteDatabase sql = admin.getReadableDatabase();
+        Cursor fila = sql.rawQuery("select usu.nombre_usu, usu.apellidos_usu from cuenta cue inner join usuario usu " +
+                "on usu.id_usuario = cue.id_usuario where codigo_cue = \'"+cuenta+"\'",null);
 
         if(fila.moveToFirst()){
-            respuesta = fila.getInt(0);
+            respuesta = fila;
         }
 
         return respuesta;

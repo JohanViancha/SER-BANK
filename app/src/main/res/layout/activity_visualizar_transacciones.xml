@@ -6,4 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".VisualizarTransacciones">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rc_listransacciones"
+        android:layout_width="385dp"
+        android:layout_height="607dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="127dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

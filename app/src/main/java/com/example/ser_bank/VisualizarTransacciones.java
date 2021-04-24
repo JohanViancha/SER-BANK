@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.ser_bank.AdminDB.adminTransaccion;
 import com.example.ser_bank.Models.SaldoUsuario;
 import com.example.ser_bank.Models.Transaccion;
+import com.example.ser_bank.RecyclerView.ListAdapterTransaccion;
 import com.example.ser_bank.RecyclerView.ListAdapterUsuarios;
 
 import java.util.ArrayList;
@@ -31,29 +32,30 @@ public class VisualizarTransacciones extends AppCompatActivity {
         adminTransaccion admintra = new adminTransaccion();
         List<Transaccion> arraytransacciones= new ArrayList<Transaccion>();
 
-        Cursor fila = admintra.listarTransacciones(this);
+        Cursor filas = admintra.listarTransacciones(this);
 
-        /*if(fila != null){
+        if(filas != null){
 
-            while (fila.moveToNext()){
+            while (filas.moveToNext()){
                 Transaccion transaccion = new Transaccion();
-                transaccion.setNombre_emi(fila.getString(0));
-                transaccion.setApellido(fila.getString(1));
-                transaccion.setSaldo(fila.getDouble(2));
-                arraytransacciones.add(saldousuario);
+                transaccion.setNombre_emi(filas.getString(1));
+                transaccion.setNombre_rec(filas.getString(2));
+                transaccion.setMonto(filas.getDouble(4));
+                transaccion.setTipo(filas.getString(3));
+                arraytransacciones.add(transaccion);
             }
         }
         else{
 
             Toast.makeText(this, "No hay transacciones", Toast.LENGTH_SHORT).show();
-        }*/
+        }
 
-       /* ListAdapterUsuarios adapter = new ListAdapterUsuarios(arrayusuario,this);
+        ListAdapterTransaccion adapter = new ListAdapterTransaccion(arraytransacciones,this);
 
-        RecyclerView recycler = findViewById(R.id.rc_listusuarios);
+        RecyclerView recycler = findViewById(R.id.rc_listransacciones);
         recycler.setHasFixedSize(true);
         recycler.setLayoutManager(new LinearLayoutManager(this));
-        recycler.setAdapter(adapter);*/
+        recycler.setAdapter(adapter);
 
     }
 }

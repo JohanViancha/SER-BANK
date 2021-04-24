@@ -35,13 +35,11 @@ public class admindb extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE transaccion(" +
                 "id_transacion integer primary key," +
-                "id_cue_emi integer," +
-                "id_cue_rec integer," +
+                "nom_emi text," +
+                "nom_rec text," +
                 "tipo_trans text," +
                 "monto_trans money," +
-                "fecha_trans date," +
-                "foreign key (id_cue_emi) references cuenta (id_cuenta)," +
-                "foreign key (id_cue_rec) references cuenta (id_cuenta))");
+                "fecha_trans date)");
 
 
         db.execSQL("INSERT INTO USUARIO VALUES (1,'Johan','Viancha','vianchajohan@gmail.com','123','Administrador')");

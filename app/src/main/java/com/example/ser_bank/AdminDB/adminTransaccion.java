@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.ser_bank.Models.Transaccion;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class adminTransaccion {
 
 
@@ -20,11 +23,9 @@ public class adminTransaccion {
         try{
             transaccion_nueva.put("tipo_trans", transaccion.getTipo());
             transaccion_nueva.put("monto_trans", transaccion.getMonto());
-            transaccion_nueva.put("id_cue_emi", transaccion.getId_cue_emi());
-            transaccion_nueva.put("id_cue_rec", transaccion.getId_cue_rec());
+            transaccion_nueva.put("nom_emi", transaccion.getNombre_emi());
+            transaccion_nueva.put("nom_rec", transaccion.getNombre_rec());
             transaccion_nueva.put("fecha_trans", transaccion.getFecha());
-
-
 
             if(sql.insert("transaccion",null, transaccion_nueva) != 0){
 
@@ -41,12 +42,10 @@ public class adminTransaccion {
     public Cursor listarTransacciones(Context context){
         admindb admin = new admindb(context, "SER-BANK",null,1);
         SQLiteDatabase sql = admin.getReadableDatabase();
-        Cursor fila = sql.rawQuery("select * from transaccion tra inner join cuenta cue" +
-                " on tra.id_cue_emi = cue.id_cuenta  inner join usuario usu " +
-                "on usu.id_usuario = cue.id_usuario" ,null);
+        Cursor filas = sql.rawQuery("select * from transaccion" ,null);
 
-        if(fila.getCount() != 0){
-            return fila;
+        if(filas.getCount() != 0){
+            return filas;
         }
         else{
             return null;

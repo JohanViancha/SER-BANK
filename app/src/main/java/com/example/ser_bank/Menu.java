@@ -29,4 +29,9 @@ public class Menu extends AppCompatActivity {
         Intent inte = new Intent(this, VisualizarUsuarios.class);
         startActivity(inte);
     }
+
+    public void listarTransacciones(View view){
+        Intent inte = new Intent(this, VisualizarTransacciones.class);
+        startActivity(inte);
+    }
 }
