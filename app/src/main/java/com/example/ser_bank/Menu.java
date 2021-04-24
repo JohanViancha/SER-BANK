@@ -20,8 +20,8 @@ public class Menu extends AppCompatActivity {
         startActivity(inte);
     }
 
-    public void realizarTransaccion(View view){
-        Intent inte = new Intent(this, RealizarTransaccion.class);
+    public void cerrarSEsion(View view){
+        Intent inte = new Intent(this, Login.class);
         startActivity(inte);
     }
 

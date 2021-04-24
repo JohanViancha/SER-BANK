@@ -15,8 +15,9 @@
         <activity android:name=".RealizarTransaccion" />
         <activity android:name=".CrearUsuario" />
         <activity android:name=".Menu" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Login">
+        <activity android:name=".Login" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

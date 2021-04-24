@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ser_bank.AdminDB.*;
@@ -31,6 +32,7 @@ public class RealizarTransaccion extends AppCompatActivity {
     TextInputEditText cuenta,monto;
     AutoCompleteTextView medio;
     TextInputLayout layoutCuenta, LayoutMedio;
+    TextView titlemedio;
     String tipo  = "Retiro";
 
     public boolean isRespuesta() {
@@ -50,7 +52,7 @@ public class RealizarTransaccion extends AppCompatActivity {
         cuenta = findViewById(R.id.txtcuenta_reatra);
         monto = findViewById(R.id.txtmonto_reatra);
         medio = findViewById(R.id.txtmedio);
-
+        titlemedio = findViewById(R.id.txttitle_medio);
         layoutCuenta = (TextInputLayout) findViewById(R.id.txtlayout_cuenta);
         LayoutMedio = (TextInputLayout) findViewById(R.id.txtlen);
 
@@ -130,6 +132,7 @@ public class RealizarTransaccion extends AppCompatActivity {
     }
 
     public  void retirar(){
+        titlemedio.setVisibility(View.VISIBLE);
         layoutCuenta.setVisibility(View.INVISIBLE);
         LayoutMedio.setVisibility(View.VISIBLE);
         tipo = "Retiro";
@@ -140,6 +143,7 @@ public class RealizarTransaccion extends AppCompatActivity {
     }
 
     public void transferir(){
+        titlemedio.setVisibility(View.INVISIBLE);
         layoutCuenta.setVisibility(View.VISIBLE);
         LayoutMedio.setVisibility(View.INVISIBLE);
         tipo = "Transferencia";

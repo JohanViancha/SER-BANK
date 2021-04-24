@@ -32,7 +32,8 @@
                 android:layout_marginRight="10dp"
                 android:gravity="left"
                 android:text="¿Para?"
-                android:textColor="#040404"
+                android:textColor="#28B78D"
+                android:textColorHighlight="#FFFFFF"
                 android:textSize="18sp">
 
             </TextView>
@@ -44,8 +45,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginRight="10dp"
-                android:gravity="center"
-                android:textColor="#040404"
+                android:gravity="left"
+                android:textColor="#243743"
                 android:textSize="18sp">
 
             </TextView>
@@ -59,7 +60,7 @@
                 android:layout_marginRight="10dp"
                 android:gravity="left"
                 android:text="¿De?"
-                android:textColor="#040404"
+                android:textColor="#28B78D"
                 android:textSize="18sp"></TextView>
 
 
@@ -71,7 +72,7 @@
                 android:layout_marginTop="100dp"
                 android:layout_marginRight="10dp"
                 android:gravity="center"
-                android:textColor="#000000"
+                android:textColor="#243743"
                 android:textSize="18dp"></TextView>
 
 
@@ -83,7 +84,7 @@
                 android:layout_marginRight="10dp"
                 android:gravity="left"
                 android:text="¿Tipo transacción?"
-                android:textColor="#040404"
+                android:textColor="#28B78D"
                 android:textSize="18sp"></TextView>
 
             <TextView
@@ -94,7 +95,7 @@
                 android:layout_marginTop="163dp"
                 android:layout_marginRight="10dp"
                 android:gravity="left"
-                android:textColor="#040404"
+                android:textColor="#243743"
                 android:textSize="18sp"></TextView>
 
 
@@ -106,7 +107,7 @@
                 android:layout_marginRight="10dp"
                 android:gravity="left"
                 android:text="Monto"
-                android:textColor="#040404"
+                android:textColor="#28B78D"
                 android:textSize="18sp"></TextView>
 
             <TextView
@@ -117,7 +118,7 @@
                 android:layout_marginTop="225dp"
                 android:layout_marginRight="10dp"
                 android:gravity="left"
-                android:textColor="#040404"
+                android:textColor="#243743"
                 android:textSize="18sp"></TextView>
 
 
@@ -129,7 +130,7 @@
                 android:layout_marginRight="10dp"
                 android:gravity="left"
                 android:text="Fecha"
-                android:textColor="#040404"
+                android:textColor="#28B78D"
                 android:textSize="18sp"></TextView>
 
             <TextView
@@ -140,7 +141,7 @@
                 android:layout_marginTop="295dp"
                 android:layout_marginRight="10dp"
                 android:gravity="left"
-                android:textColor="#040404"
+                android:textColor="#243743"
                 android:textSize="18sp"></TextView>
 
         </RelativeLayout>

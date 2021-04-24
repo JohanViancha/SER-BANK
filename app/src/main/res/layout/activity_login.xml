@@ -15,7 +15,12 @@
         android:layout_marginTop="400dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
         android:hint="@string/pla_txtusuario"
+        app:startIconDrawable="@drawable/ic_baseline_people_outline_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -38,10 +43,15 @@
         android:layout_marginTop="530dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
         android:hint="@string/pla_txtpassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:endIconMode="password_toggle">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtpassword"
@@ -63,6 +73,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="248dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_foreground" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,7 @@
 
         android:layout_width="385dp"
         android:layout_height="129dp"
+        android:background="#29B68D"
         android:orientation="vertical"
         android:padding="20dp">
 
@@ -27,10 +28,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:textColor="#040404"
+                android:textColor="#243743"
                 android:textSize="18sp">
 
             </TextView>
@@ -40,10 +41,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="55dp"
                 android:layout_marginRight="10dp"
                 android:gravity="center"
-                android:layout_marginTop="55dp"
-                android:textColor="#000000"
+                android:textColor="#243743"
                 android:textSize="18dp"></TextView>
 
         </RelativeLayout>

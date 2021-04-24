@@ -62,10 +62,6 @@ public class ListAdapterTransaccion extends RecyclerView.Adapter<ListAdapterTran
         }
 
         public void mostrarTransacciones(final Transaccion transaccion){
-            if(transaccion.getTipo() == "Retiro"){
-                medio.setText("Medio de retiro");
-                quien.setText("¿Quien retira?");
-            }
             de.setText(transaccion.getNombre_emi());
             para.setText(transaccion.getNombre_rec());
             tipo.setText(transaccion.getTipo());
